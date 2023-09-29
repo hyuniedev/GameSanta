@@ -25,10 +25,10 @@ public class BabyBoySetting : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            if (collision.GetComponentInParent<MovePlayer>().slCandy!=0)
+            if (MovePlayer.slCandy!=0)
             {
                 animator.SetFloat("winner", 1);
-                Invoke("ChienThang", 2.0f);
+                Invoke("ChienThang", 2.7f);
             }
         }
     }

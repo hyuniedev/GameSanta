@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour
 {
     private bool Win = false;
-    private int scenePlay = 2;
+    private static int scenePlay = 2;
     public GameObject tuyet;
     private GameObject tuyetRoi;
     public GameObject player;
@@ -45,12 +45,16 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         Win= false;
+        MovePlayer.slCandy = 0;
+        Debug.Log(scenePlay);
         SceneManager.LoadScene(scenePlay);
     }
     public void NextScene()
     {
         Win = false;
-        SceneManager.LoadScene(scenePlay);
+        MovePlayer.slCandy = 0;
+        Debug.Log(scenePlay);
         scenePlay++;
+        SceneManager.LoadScene(scenePlay);
     }
 }

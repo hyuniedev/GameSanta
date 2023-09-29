@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class MovePlayer : MonoBehaviour
 {
     public Text txtCandy;
-    public int slCandy = 0;
+    public static int slCandy = 0;
     public bool bloodPlayer = true;
     private Rigidbody2D rb;
     private Animator animator;
@@ -50,10 +50,6 @@ public class MovePlayer : MonoBehaviour
         {
             wfly.diChuyen(this.gameObject);
         }
-    }
-    public void Revival()
-    {
-        SceneManager.LoadScene(0);
     }
     public void Died()
     {
