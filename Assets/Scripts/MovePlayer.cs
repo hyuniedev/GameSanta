@@ -34,7 +34,7 @@ public class MovePlayer : MonoBehaviour
     }
     void Update()
     {
-        if(bloodPlayer)
+        if (bloodPlayer)
         {
             Walk();
             Run();
@@ -46,7 +46,7 @@ public class MovePlayer : MonoBehaviour
     }
     private void MoveWithWall()
     {
-        if (mww&&trai_phai==0&&wfly!=null)
+        if (mww && trai_phai == 0 && wfly != null)
         {
             wfly.diChuyen(this.gameObject);
         }
@@ -54,7 +54,7 @@ public class MovePlayer : MonoBehaviour
     public void Died()
     {
         this.animator.SetBool("dead", bloodPlayer);
-        if(!bloodPlayer)
+        if (!bloodPlayer)
         {
             Invoke(nameof(HienMenu), 0.65f);
         }
@@ -63,17 +63,17 @@ public class MovePlayer : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
-    private void Slide() 
+    private void Slide()
     {
         if (trai_phai != 0)
         {
-            if(Input.GetKey(KeyCode.S))
+            if (Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.DownArrow))
             {
                 this.animator.SetFloat("slide", 1.0f);
                 jumped = true;
-            }else if (Input.GetKeyUp(KeyCode.S))
+            } else if (Input.GetKeyUp(KeyCode.S))
             {
-                jumped=false;
+                jumped = false;
             }
             else
             {
@@ -105,7 +105,7 @@ public class MovePlayer : MonoBehaviour
     }
     private void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.W)&&!jumped)
+        if ((Input.GetKeyDown(KeyCode.W)||(Input.GetKeyDown(KeyCode.UpArrow))) &&!jumped)
         {
             rb.AddForce(new Vector2(rb.velocity.x, 1500));
             this.animator.SetFloat("jump", 1);

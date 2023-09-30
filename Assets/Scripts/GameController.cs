@@ -18,7 +18,7 @@ public class GameController : MonoBehaviour
     {
         dsTuyet = new List<GameObject>();
         xMin = -19;
-        xMax = 55;
+        xMax = 80;
         yMin = 10;
         yMax = 24;
     }
