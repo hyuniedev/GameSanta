@@ -46,7 +46,6 @@ public class GameController : MonoBehaviour
     {
         Win= false;
         MovePlayer.slCandy = 0;
-        Debug.Log(scenePlay);
         SceneManager.LoadScene(scenePlay);
     }
     public void NextScene()
