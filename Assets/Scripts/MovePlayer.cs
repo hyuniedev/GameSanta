@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class MovePlayer : MonoBehaviour
 {
+    private bool gettedW, gettedUp, gettedSpace;
     public Text txtCandy;
     public static int slCandy = 0;
     public bool bloodPlayer = true;
@@ -13,6 +14,7 @@ public class MovePlayer : MonoBehaviour
     private Animator animator;
     private float speedMove = 8.5f;
     private float trai_phai;
+    private float tren_duoi;
     private bool seeRight;
     private bool jumped;
     private bool dekiruRun;
@@ -71,7 +73,7 @@ public class MovePlayer : MonoBehaviour
             {
                 this.animator.SetFloat("slide", 1.0f);
                 jumped = true;
-            } else if (Input.GetKeyUp(KeyCode.S))
+            } else if (Input.GetKeyUp(KeyCode.S)||Input.GetKeyUp(KeyCode.DownArrow))
             {
                 jumped = false;
             }
@@ -105,11 +107,27 @@ public class MovePlayer : MonoBehaviour
     }
     private void Jump()
     {
-        if ((Input.GetKeyDown(KeyCode.W)||(Input.GetKeyDown(KeyCode.UpArrow))) &&!jumped)
+        if ((Input.GetKeyDown(KeyCode.W)) &&!jumped&&!gettedUp&&!gettedSpace)
         {
+            gettedW = true; gettedUp = false; gettedSpace = false;
             rb.AddForce(new Vector2(rb.velocity.x, 1500));
             this.animator.SetFloat("jump", 1);
         }
+        if(Input.GetKeyUp(KeyCode.W)) { gettedW = false; }
+        if ((Input.GetKeyDown(KeyCode.UpArrow)) && !jumped && !gettedW && !gettedSpace)
+        {
+            gettedW = false; gettedUp = true; gettedSpace = false;
+            rb.AddForce(new Vector2(rb.velocity.x, 1500));
+            this.animator.SetFloat("jump", 1);
+        }
+        if (Input.GetKeyUp(KeyCode.UpArrow)) { gettedUp = false; }
+        if ((Input.GetKeyDown(KeyCode.Space)) && !jumped && !gettedUp && !gettedW)
+        {
+            gettedW = false; gettedUp = false; gettedSpace = true;
+            rb.AddForce(new Vector2(rb.velocity.x, 1500));
+            this.animator.SetFloat("jump", 1);
+        }
+        if(Input.GetKeyUp(KeyCode.Space)) {  gettedSpace = false; }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
