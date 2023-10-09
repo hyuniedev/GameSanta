@@ -784,8 +784,8 @@ Transform:
   m_Father: {fileID: 1319336827}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &177241227
-BoxCollider2D:
+--- !u!70 &177241227
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -816,19 +816,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.54052377, y: -0.19316703}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.622962, y: 3.0009255}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.66538215, y: 0.020139217}
+  m_Size: {x: 1.4364624, y: 3.4241045}
+  m_Direction: 0
 --- !u!1 &193507137
 GameObject:
   m_ObjectHideFlags: 0
@@ -5345,6 +5335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtCandy: {fileID: 1521304385}
   bloodPlayer: 1
+  animator: {fileID: 1319336828}
 --- !u!212 &1319336832
 SpriteRenderer:
   m_ObjectHideFlags: 0
